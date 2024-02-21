@@ -13,10 +13,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mvvpjetpackretrtest.model.CreditCardResponse
 import com.example.mvvpjetpackretrtest.viewModel.CreditCardViewModel
-
+@Preview
 @Composable
 fun CreditCardScreen(viewModel: CreditCardViewModel) {
     val creditCards by viewModel.creditCards.observeAsState(null)
@@ -42,8 +43,7 @@ fun CreditCardItem(creditCard: CreditCardResponse) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
-        elevation = 4.dp
+            .padding(16.dp)
     ) {
         Column(
             modifier = Modifier
@@ -52,17 +52,17 @@ fun CreditCardItem(creditCard: CreditCardResponse) {
         ) {
             Text(
                 text = creditCard.credit_card_number,
-                style = MaterialTheme.typography.h6
+
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = "Expiry Date: ${creditCard.credit_card_expiry_date}",
-                style = MaterialTheme.typography.body1
+
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
                 text = creditCard.credit_card_type,
-                style = MaterialTheme.typography.body1
+
             )
         }
     }
